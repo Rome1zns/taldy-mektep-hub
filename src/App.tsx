@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import MatrixRain from "@/components/MatrixRain";
 import Index from "./pages/Index.tsx";
 import Schools from "./pages/Schools.tsx";
 import SchoolProfile from "./pages/SchoolProfile.tsx";
@@ -15,6 +16,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <MatrixRain />
       <Toaster />
       <Sonner />
       <BrowserRouter>

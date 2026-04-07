@@ -32,10 +32,10 @@ const AnimatedNumber = ({ value, suffix }: { value: number; suffix: string }) =>
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-hero ornament-bg">
-      {/* Decorative circles */}
-      <div className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
-      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden ornament-bg">
+      {/* Decorative phosphor halos */}
+      <div className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container mx-auto px-4 pt-24 pb-16 lg:pt-32">
         <div className="mx-auto max-w-4xl text-center">
@@ -44,8 +44,8 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary">
-              🇰🇿 Талдықорған қаласы
+            <span className="mb-4 inline-block border border-primary/50 bg-primary/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-primary text-glow">
+              [ KZ ] :: Талдықорған_қаласы
             </span>
           </motion.div>
 
@@ -53,11 +53,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 font-heading text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-7xl"
+            className="mt-6 font-heading text-4xl font-bold uppercase leading-tight tracking-wider text-primary text-glow-strong sm:text-5xl lg:text-6xl"
           >
             Мектептердің{" "}
             <span className="text-gradient-primary">цифрлық</span>{" "}
             <span className="text-gradient-gold">хабы</span>
+            <span className="terminal-caret" aria-hidden="true" />
           </motion.h1>
 
           <motion.p
@@ -82,12 +83,12 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                className="rounded-xl border border-border bg-card/60 p-5 shadow-card backdrop-blur-sm"
+                className="border border-primary/40 bg-card/40 p-5 shadow-card backdrop-blur-sm"
               >
-                <div className="font-heading text-3xl font-bold text-primary lg:text-4xl">
+                <div className="font-heading text-3xl font-bold text-primary text-glow-strong lg:text-4xl">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+                <div className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

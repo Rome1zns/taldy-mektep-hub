@@ -26,7 +26,7 @@ const SchoolProfile = () => {
 
   if (!school) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
         <p className="text-muted-foreground">Мектеп табылмады</p>
       </div>
     );
@@ -37,7 +37,7 @@ const SchoolProfile = () => {
   const totalScore = school.values.reduce((sum, v) => sum + v.score, 0);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative z-10 min-h-screen">
       <Header />
       <div className="container mx-auto px-4 pt-24 pb-16 lg:pt-28">
         <Link to="/schools" className="mb-6 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -114,10 +114,10 @@ const SchoolProfile = () => {
               <p className="text-xs text-muted-foreground mb-4">Жалпы балл: <span className="font-bold text-primary">{totalScore}/1000</span></p>
               <ResponsiveContainer width="100%" height={300}>
                 <RadarChart data={radarData}>
-                  <PolarGrid stroke="hsl(220,30%,22%)" />
-                  <PolarAngleAxis dataKey="name" tick={{ fill: "hsl(215,20%,55%)", fontSize: 10 }} />
+                  <PolarGrid stroke="hsl(135,100%,22%)" />
+                  <PolarAngleAxis dataKey="name" tick={{ fill: "hsl(127,90%,45%)", fontSize: 10 }} />
                   <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
-                  <Radar name="Балл" dataKey="value" stroke="hsl(195,100%,47%)" fill="hsl(195,100%,47%)" fillOpacity={0.2} strokeWidth={2} />
+                  <Radar name="Балл" dataKey="value" stroke="hsl(135,100%,50%)" fill="hsl(135,100%,50%)" fillOpacity={0.25} strokeWidth={2} />
                 </RadarChart>
               </ResponsiveContainer>
             </div>

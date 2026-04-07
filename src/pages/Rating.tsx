@@ -27,7 +27,7 @@ const Rating = () => {
   const isInnovator = (school: typeof SCHOOLS[0], rank: number) => rank < 3 && school.posts > 20;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative z-10 min-h-screen">
       <Header />
       <div className="container mx-auto px-4 pt-24 pb-16 lg:pt-28">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
