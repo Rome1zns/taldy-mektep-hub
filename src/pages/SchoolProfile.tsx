@@ -1,15 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Users, FileText, UserCheck, Star } from "lucide-react";
+import { ArrowLeft, Users, GraduationCap, UserCheck } from "lucide-react";
 import { useState } from "react";
 import { SCHOOLS } from "@/data/schools";
 import { POSTS } from "@/data/posts";
 import { VALUES } from "@/data/mockData";
 import PostCard from "@/components/PostCard";
+import PublicationsTab from "@/components/PublicationsTab";
 import Header from "@/components/Header";
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from "recharts";
 
-const TABS = ["Жазбалар", "Құндылықтар", "Жетістіктер"] as const;
+const TABS = ["Жазбалар", "Жарияланымдар", "Құндылықтар", "Жетістіктер"] as const;
 
 const BADGES = [
   { label: "STEM көшбасшы", icon: "🔬", desc: "STEM бағытында жетекші мектеп" },
@@ -35,6 +36,12 @@ const SchoolProfile = () => {
   const schoolPosts = POSTS.filter((p) => p.schoolId === school.id);
   const radarData = school.values.map((v) => ({ name: v.name, value: v.score, fullMark: 100 }));
   const totalScore = school.values.reduce((sum, v) => sum + v.score, 0);
+  // Школьный номер берём из названия по префиксу "№N" — стабильнее, чем `id`,
+  // потому что id используется только для URL и может быть перетасован.
+  const schoolNumber = (() => {
+    const m = school.name.match(/№\s*(\d+)/);
+    return m ? parseInt(m[1], 10) : null;
+  })();
 
   return (
     <div className="relative z-10 min-h-screen">
@@ -56,9 +63,8 @@ const SchoolProfile = () => {
               <div className="mt-4 flex flex-wrap gap-4">
                 {[
                   { icon: Users, label: "Оқушы", val: school.students },
-                  { icon: FileText, label: "Жазба", val: school.posts },
+                  { icon: GraduationCap, label: "Мұғалімдер", val: school.teachers },
                   { icon: UserCheck, label: "Жазылушы", val: school.subscribers + (subscribed ? 1 : 0) },
-                  { icon: Star, label: "Рейтинг", val: school.rating },
                 ].map((s) => (
                   <div key={s.label} className="flex items-center gap-1.5 text-sm">
                     <s.icon size={14} className="text-primary" />
@@ -105,6 +111,16 @@ const SchoolProfile = () => {
               <p className="py-12 text-center text-muted-foreground">Әзірге жазбалар жоқ</p>
             )}
           </div>
+        )}
+
+        {tab === "Жарияланымдар" && (
+          schoolNumber !== null ? (
+            <PublicationsTab schoolNumber={schoolNumber} />
+          ) : (
+            <p className="py-12 text-center text-muted-foreground">
+              Мектеп нөмірін анықтау мүмкін болмады
+            </p>
+          )
         )}
 
         {tab === "Құндылықтар" && (

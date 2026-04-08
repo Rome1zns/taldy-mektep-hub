@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search, Users, FileText, UserCheck } from "lucide-react";
+import { Search } from "lucide-react";
 import { SCHOOLS } from "@/data/schools";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -21,7 +21,7 @@ const Schools = () => {
       <div className="container mx-auto px-4 pt-24 pb-16 lg:pt-28">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <h1 className="font-heading text-3xl font-bold text-foreground lg:text-4xl">Мектептер каталогы</h1>
-          <p className="mt-2 text-muted-foreground">Талдықорған қаласының 30 мектебі</p>
+          <p className="mt-2 text-muted-foreground">Талдықорған қаласының 27 мектебі</p>
         </motion.div>
 
         {/* Search */}
@@ -58,12 +58,11 @@ const Schools = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-4 gap-2 text-center">
+                <div className="grid grid-cols-3 gap-2 text-center">
                   {[
-                    { icon: Users, label: "Оқушы", val: school.students },
-                    { icon: FileText, label: "Жазба", val: school.posts },
-                    { icon: UserCheck, label: "Жазылушы", val: school.subscribers },
-                    { icon: null, label: "Рейтинг", val: school.rating },
+                    { label: "Оқушы", val: school.students },
+                    { label: "Мұғалімдер", val: school.teachers },
+                    { label: "Жазылушы", val: school.subscribers },
                   ].map((s) => (
                     <div key={s.label}>
                       <div className="font-heading text-sm font-bold text-primary">{s.val}</div>

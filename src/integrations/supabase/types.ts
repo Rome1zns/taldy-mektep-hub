@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      school_publications: {
+        Row: {
+          id: string
+          school_number: number
+          category: string
+          category_slug: string
+          original_filename: string
+          storage_path: string
+          mime_type: string | null
+          size_bytes: number | null
+          file_hash: string
+          uploaded_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          school_number: number
+          category: string
+          category_slug: string
+          original_filename: string
+          storage_path: string
+          mime_type?: string | null
+          size_bytes?: number | null
+          file_hash: string
+          uploaded_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          school_number?: number
+          category?: string
+          category_slug?: string
+          original_filename?: string
+          storage_path?: string
+          mime_type?: string | null
+          size_bytes?: number | null
+          file_hash?: string
+          uploaded_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

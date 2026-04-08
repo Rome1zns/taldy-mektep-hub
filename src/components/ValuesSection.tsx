@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { getAverageValues } from "@/data/mockData";
+import { getAverageValues } from "@/data/schools";
 
 const ValuesSection = () => {
   const values = getAverageValues();

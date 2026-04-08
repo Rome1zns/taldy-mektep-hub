@@ -24,7 +24,6 @@ const Rating = () => {
   }, [activeTab]);
 
   const maxScore = activeTab === "all" ? 1000 : 100;
-  const isInnovator = (school: typeof SCHOOLS[0], rank: number) => rank < 3 && school.posts > 20;
 
   return (
     <div className="relative z-10 min-h-screen">
@@ -93,11 +92,6 @@ const Rating = () => {
                           </div>
                           <div className="min-w-0">
                             <span className="font-heading text-sm font-semibold text-foreground truncate block">{school.name}</span>
-                            {isInnovator(school, i) && (
-                              <span className="inline-flex items-center gap-1 text-[10px] text-accent font-medium">
-                                ⭐ Жаңашыл директор
-                              </span>
-                            )}
                           </div>
                         </Link>
                       </td>
