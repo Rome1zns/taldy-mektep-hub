@@ -39,7 +39,7 @@ export const SCHOOLS: School[] = [
   { id: 21, name: "№16 орта мектеп-гимназиясы", director: "Андриянова Татьяна Николаевна", students: 846, teachers: 81, avatar: "№16", subscribers: 400, values: v() },
   { id: 22, name: "№17 орта мектеп", director: "Акшолакова Рахила Молдагалиевна", students: 1200, teachers: 93, avatar: "№17", subscribers: 930, values: v() },
   { id: 8, name: "№18 Бақтыбай Жолбарысұлы атындағы орта мектеп-лицейі", director: "Жанаберлиева Салтанат Бейсенбаевна", students: 1328, teachers: 104, avatar: "БЖ", subscribers: 840, values: v() },
-  { id: 23, name: "№19 М.Жұмабаев атындағы орта мектеп-гимназиясы", director: "Замзина Қарлығаш Келисовна", students: 810, teachers: 61, avatar: "МЖ", subscribers: 540, values: v() },
+  { id: 23, name: "№19 М.Жұмабаев атындағы орта мектеп-гимназиясы", director: "Замзина Қарлығаш Келисовна", students: 1225, teachers: 101, avatar: "МЖ", subscribers: 540, values: v() },
   { id: 24, name: "№21 Өтенай ауылындағы МДШО бар орта мектеп", director: "Баймырзаев Ердос Гайниевич", students: 1287, teachers: 125, avatar: "№21", subscribers: 1200, values: v() },
   { id: 10, name: "№22 Еңбек ауылындағы МДШО бар орта мектеп", director: "Мусанов Ернар Жауынбаевич", students: 546, teachers: 55, avatar: "№22", subscribers: 590, values: v() },
   { id: 25, name: "№23 Мойнақ ауылындағы МДШО бар орта мектеп", director: "Утепбергенов Даурен Ахметович", students: 149, teachers: 38, avatar: "№23", subscribers: 470, values: v() },
