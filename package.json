@@ -1,5 +1,6 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "taldy-mektep-hub",
+  "description": "Цифровой хаб школ Талдыкоргана на React и Supabase",
   "private": true,
   "version": "0.0.0",
   "type": "module",
